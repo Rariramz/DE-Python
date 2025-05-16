@@ -29,4 +29,4 @@ if __name__ == "__main__":
     else:
         export_xml(structured, "rooms", "exports/output.xml")
 
-    logger.info("~~~ Export comleted successfully! ~~")
+    logger.info("~~~ Export completed successfully! ~~")
