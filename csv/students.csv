@@ -1,0 +1,21 @@
+id,name,age,room,sex,nationality
+1,John Doe,21,101,M,USA
+2,Jane Smith,22,101,F,Canada
+3,Ahmed Khan,23,102,M,Pakistan
+4,Liu Wei,20,103,F,China
+5,Maria Garcia,21,104,F,Mexico
+6,James Brown,24,105,M,USA
+7,Anna Müller,22,106,F,Germany
+8,Yuki Tanaka,23,107,F,Japan
+9,Carlos Silva,21,108,M,Brazil
+10,Nina Petrova,22,109,F,Russia
+11,David Lee,20,110,M,South Korea
+12,Sophie Dubois,22,104,F,France
+13,Mohamed Ali,23,103,M,Egypt
+14,Olivia Smith,21,102,F,UK
+15,Pedro Alvarez,24,105,M,Spain
+16,Chloe Martin,22,106,F,France
+17,Raj Patel,23,107,M,India
+18,Emily Johnson,20,108,F,Australia
+19,Kevin O'Brien,22,109,M,Ireland
+20,Isabella Rossi,21,110,F,Italy
