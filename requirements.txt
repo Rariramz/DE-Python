@@ -1,0 +1,4 @@
+psycopg[binary]
+click
+pyyaml
+pytest
