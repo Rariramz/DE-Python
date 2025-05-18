@@ -2,3 +2,4 @@ psycopg[binary]
 click
 pyyaml
 pytest
+colorlog
