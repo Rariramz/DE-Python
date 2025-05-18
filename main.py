@@ -12,8 +12,8 @@ if __name__ == "__main__":
     logger.info("~~~ Initializing DB... ~~")
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     init_db(os.path.join(BASE_DIR, "schema", "init_db.sql"))
-    load_rooms(os.path.join(BASE_DIR, "csv", "rooms.csv"))
-    load_students(os.path.join(BASE_DIR, "csv", "students.csv"))
+    load_rooms()
+    load_students()
     logger.info("~~~ DB initialized successfully! ~~")
 
     parser = argparse.ArgumentParser()
