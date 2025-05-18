@@ -1,8 +1,10 @@
 from psycopg import connect
 from app.config import get_config
+from app.logger import get_logger
 
 def run_query(filepath: str):
     config = get_config()
+    logger = get_logger('app.queries')
 
     with open(filepath, "r") as f:
         query = f.read()
@@ -10,6 +12,7 @@ def run_query(filepath: str):
     with connect(**config) as conn:
         with conn.cursor() as cur:
             cur.execute(query)
+            logger.info("Successfully executed queries from %s", filepath)
             return cur.fetchall()
 
 def get_rooms_students_counts():
