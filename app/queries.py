@@ -16,13 +16,26 @@ def run_query(filepath: str):
             return cur.fetchall()
 
 def get_rooms_students_counts():
-    return run_query('./queries_sql/rooms_students_count.sql')
+    return run_query('queries_sql/rooms_students_count.sql')
 
+# TODO: move converting Decimal into reusable util
 def get_rooms_w_lowest_age():
-    return run_query('/queries_sql/five_rooms_lowest_age.sql')
+    results = run_query('queries_sql/five_rooms_lowest_age.sql')
+    cleaned_results = []
+    for row in results:
+        room_id, room_name, avg_age = row
+        avg_age = float(avg_age) if avg_age is not None else None
+        cleaned_results.append((room_id, room_name, avg_age))
+    return cleaned_results
     
 def get_rooms_w_biggest_age_delta():
-    return run_query('/queries_sql/five_rooms_biggest_age_delta.sql')
+    results = run_query('queries_sql/five_rooms_biggest_age_delta.sql')
+    cleaned_results = []
+    for row in results:
+        room_id, room_name, age_delta = row
+        age_delta = float(age_delta) if age_delta is not None else None
+        cleaned_results.append((room_id, room_name, age_delta))
+    return cleaned_results
     
 def get_multinational_rooms():
-    return run_query('/queries_sql/multinational_rooms.sql')
+    return run_query('queries_sql/multinational_rooms.sql')

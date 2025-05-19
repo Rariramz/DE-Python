@@ -1,0 +1,52 @@
+[
+  {
+    "room_id": 101,
+    "room_name": "Room A",
+    "nationalities": "Canada, USA"
+  },
+  {
+    "room_id": 102,
+    "room_name": "Room B",
+    "nationalities": "Pakistan, UK"
+  },
+  {
+    "room_id": 103,
+    "room_name": "Room C",
+    "nationalities": "China, Egypt"
+  },
+  {
+    "room_id": 104,
+    "room_name": "Room D",
+    "nationalities": "France, Mexico"
+  },
+  {
+    "room_id": 105,
+    "room_name": "Room E",
+    "nationalities": "Spain, USA"
+  },
+  {
+    "room_id": 106,
+    "room_name": "Room F",
+    "nationalities": "France, Germany"
+  },
+  {
+    "room_id": 107,
+    "room_name": "Room G",
+    "nationalities": "India, Japan"
+  },
+  {
+    "room_id": 108,
+    "room_name": "Room H",
+    "nationalities": "Australia, Brazil"
+  },
+  {
+    "room_id": 109,
+    "room_name": "Room I",
+    "nationalities": "Ireland, Russia"
+  },
+  {
+    "room_id": 110,
+    "room_name": "Room J",
+    "nationalities": "Italy, South Korea"
+  }
+]
