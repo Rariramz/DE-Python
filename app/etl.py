@@ -22,9 +22,3 @@ def load_table(filepath: str, table_name: str):
                     cur.execute(insert_sql, values)
         conn.commit()
     logger.info("Loaded records from csv %s into %s table successfully!", filepath, table_name)
-
-def load_rooms():
-    load_table('./csv/rooms.csv', 'rooms')
-
-def load_students():
-    load_table('./csv/students.csv', 'students')

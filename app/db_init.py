@@ -15,7 +15,3 @@ def init_db(pathname: str):
             cur.execute(sql)
         conn.commit()
     logger.info('Successfully initialized DB with sql from %s', pathname)
-
-
-def init():
-   init_db('schema/init_db.sql')

@@ -1,0 +1,27 @@
+[
+  {
+    "room_id": 103,
+    "room_name": "Room C",
+    "age_delta": 3.0
+  },
+  {
+    "room_id": 102,
+    "room_name": "Room B",
+    "age_delta": 2.0
+  },
+  {
+    "room_id": 104,
+    "room_name": "Room D",
+    "age_delta": 1.0
+  },
+  {
+    "room_id": 101,
+    "room_name": "Room A",
+    "age_delta": 1.0
+  },
+  {
+    "room_id": 108,
+    "room_name": "Room H",
+    "age_delta": 1.0
+  }
+]

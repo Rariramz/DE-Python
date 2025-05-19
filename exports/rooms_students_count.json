@@ -1,0 +1,52 @@
+[
+  {
+    "room_id": 101,
+    "room_name": "Room A",
+    "students_count": 2
+  },
+  {
+    "room_id": 108,
+    "room_name": "Room H",
+    "students_count": 2
+  },
+  {
+    "room_id": 103,
+    "room_name": "Room C",
+    "students_count": 2
+  },
+  {
+    "room_id": 104,
+    "room_name": "Room D",
+    "students_count": 2
+  },
+  {
+    "room_id": 105,
+    "room_name": "Room E",
+    "students_count": 2
+  },
+  {
+    "room_id": 107,
+    "room_name": "Room G",
+    "students_count": 2
+  },
+  {
+    "room_id": 102,
+    "room_name": "Room B",
+    "students_count": 2
+  },
+  {
+    "room_id": 109,
+    "room_name": "Room I",
+    "students_count": 2
+  },
+  {
+    "room_id": 106,
+    "room_name": "Room F",
+    "students_count": 2
+  },
+  {
+    "room_id": 110,
+    "room_name": "Room J",
+    "students_count": 2
+  }
+]
