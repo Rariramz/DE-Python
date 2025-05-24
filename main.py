@@ -38,4 +38,4 @@ if __name__ == "__main__":
     export_data(output_format, structured_biggest_age_delta, "rooms_biggest_age_delta", "rooms_biggest_age_delta")
     export_data(output_format, structured_multinational, "rooms_multinational", "rooms_multinational")
 
-# python main.py --init schema/init_db.sql --students csv/students.csv --rooms csv/rooms.csv
+# python main.py --init schema/init_db.sql --students csv/test_students.csv --rooms csv/test_rooms.csv

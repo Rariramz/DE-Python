@@ -1,10 +1,11 @@
 import yaml
 import os
 
-def get_config():
+def get_config(test=False):
     with open("config.yaml") as f:
         cfg = yaml.safe_load(f)
-        db_cfg = cfg["db"]
+        key = "test_db" if test else "db"
+        db_cfg = cfg[key]
         
     db_cfg['host'] = os.getenv('POSTGRES_HOST', db_cfg['host'])
     db_cfg['port'] = int(os.getenv('POSTGRES_PORT', db_cfg['port']))
