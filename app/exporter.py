@@ -20,8 +20,8 @@ def export_data(
 def export_json(data: list, filename: str):
     logger.info("Exporting results in json...")
     os.makedirs(os.path.dirname(filename), exist_ok=True)
-    with open(filename, "w") as f:
-        json.dump(data, f, indent=2)
+    with open(filename, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
     
 
 def export_xml(data: list[dict], root_tag: str, filename: str):
@@ -30,10 +30,9 @@ def export_xml(data: list[dict], root_tag: str, filename: str):
     root = ET.Element(root_tag)
     for row in data:
         item = ET.SubElement(root, "item")
-        logger.error("ROW", row)
         for key, val in row.items():
             child = ET.SubElement(item, key)
             child.text = str(val)
     tree = ET.ElementTree(root)
-    tree.write(filename)
+    tree.write(filename, encoding="utf-8", xml_declaration=True)
     logger.info("Successfully exported results in xml to /exports folder")
