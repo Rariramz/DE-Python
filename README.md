@@ -11,6 +11,31 @@ The queries answer four questions:
 
 Sample inputs are in [`csv/`](csv/) and example results are in [`exports/`](exports/).
 
+## Data flow
+
+```text
+CSV input
+→ Python ingestion
+→ PostgreSQL relational schema
+→ analytical SQL queries
+→ Python result formatting
+→ JSON / XML exports
+```
+
+PostgreSQL performs the analytical computations; Python handles ingestion, orchestration, and export rather than repeating the calculations in application code.
+
+## Example output
+
+```json
+[
+  {
+    "room_id": 108,
+    "room_name": "Room H",
+    "avg_age": 20.5
+  }
+]
+```
+
 ## Run with Docker
 
 The quickest way to run the sample pipeline is:
@@ -53,7 +78,7 @@ python main.py \
   --format json
 ```
 
-Connection settings are read from `config.yaml`. They can also be overridden with the standard `POSTGRES_HOST`, `POSTGRES_PORT`, `POSTGRES_USER`, `POSTGRES_PASSWORD`, and `POSTGRES_DB` environment variables.
+Connection settings are read from `config.yaml`. The committed credentials are local development defaults only; override them with `POSTGRES_HOST`, `POSTGRES_PORT`, `POSTGRES_USER`, `POSTGRES_PASSWORD`, and `POSTGRES_DB` environment variables when needed.
 
 The expected CSV headers are:
 
