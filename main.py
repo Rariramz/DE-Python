@@ -1,7 +1,5 @@
-import os
 from app.db_init import init_db
 from app.etl import load_table
-import argparse
 from app.queries import (
     get_rooms_students_counts,
     get_rooms_w_lowest_age,
@@ -9,7 +7,6 @@ from app.queries import (
     get_multinational_rooms
 )
 from app.exporter import export_data
-from app.logger import get_logger
 from app.cli import parse_args
 
 if __name__ == "__main__":
@@ -37,5 +34,3 @@ if __name__ == "__main__":
     export_data(output_format, structured_lowest_age, "rooms_lowest_age", "rooms_lowest_age")
     export_data(output_format, structured_biggest_age_delta, "rooms_biggest_age_delta", "rooms_biggest_age_delta")
     export_data(output_format, structured_multinational, "rooms_multinational", "rooms_multinational")
-
-# python main.py --init schema/init_db.sql --students csv/test_students.csv --rooms csv/test_rooms.csv

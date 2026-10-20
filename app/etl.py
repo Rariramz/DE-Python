@@ -2,7 +2,6 @@ import csv
 import psycopg
 from app.config import get_config
 from app.logger import get_logger
-import logging
 
 def load_table(filepath: str, table_name: str):
     config = get_config()

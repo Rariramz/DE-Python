@@ -1,74 +1,71 @@
-# 🐍 Python Introduction Project
+# Student Housing Analytics
 
-## 📝 Summary
+This is a small data engineering project I built to practise working with Python, PostgreSQL, and raw SQL. It loads student and room data from CSV files, runs several analytical queries in the database, and exports the results as JSON or XML.
 
-This project is a Python-based command-line tool designed to load student and room data into a relational database (MySQL or PostgreSQL), perform analytical queries, and export the results in JSON or XML format.  
-It touches on several foundational concepts of DE (schema design, SQL, file parsing, Docker, CLI, testing, and more).
+The queries answer four questions:
 
-### 🔧 Features
-- Many-to-one relational schema between students and rooms.
-- Raw SQL queries (no ORM).
-- Optimized with indexes.
-- Query results exported in JSON or XML.
-- Dockerized deployment using `docker-compose`.
-- Unit tested and follows SOLID principles.
+- How many students live in each room?
+- Which five rooms have the lowest average age?
+- Which five rooms have the largest age difference?
+- Which rooms contain students of different nationalities?
 
-### 🛠️ Technologies
-- Python 3
-- MySQL or PostgreSQL
-- Docker & Docker Compose
-- Raw SQL
-- JSON/XML data handling
+Sample inputs are in [`csv/`](csv/) and example results are in [`exports/`](exports/).
 
----
+## Run with Docker
 
-<details>
-<summary>📌 <strong>Task Details</strong> (Click to expand)</summary>
-
-### 🎯 Objective
-
-Design a schema using **MySQL** or **PostgreSQL** to represent a **many-to-one** relationship between students and rooms.  
-Build a Python-based CLI application to:
-
-- Load student and room data from provided files.
-- Store the data into the relational database.
-- Perform analytical queries and export results in **JSON** or **XML** formats.
-
-### 📁 Input Files
-
-The application expects two input files:
-
-- `students`: Path to the student data file.
-- `rooms`: Path to the room data file.
-
-### 🧩 Database Schema
-
-A relational schema should be created to represent the data, ensuring a **many-to-one** relationship (i.e., many students can belong to one room).
-
-### 🔍 Query Requirements
-
-1. List of rooms and the number of students in each room.
-2. Five rooms with the **lowest average student age**.
-3. Five rooms with the **highest age difference** among students.
-4. List of rooms where students of **different nationalities** live.
-
-All calculations **must be performed at the database level using raw SQL** (no ORM).
-
-### 🚀 Optimization
-
-- Propose and implement **indexing strategies** for performance.
-- Provide an SQL script to create all necessary **indexes**.
-
-### 📤 Output Formats
-
-Support the following export formats:
-
-- `--format json`
-- `--format xml`
-
-### 🖥️ Command-Line Interface
-
-The script should be executable from the command line with the following parameters:
+The quickest way to run the sample pipeline is:
 
 ```bash
-python main.py --students path/to/students.json --rooms path/to/rooms.json --format json
+docker compose up --build --abort-on-container-exit app
+```
+
+This starts PostgreSQL, creates the schema, loads the sample data, and writes JSON results to `exports/`.
+
+To export XML instead:
+
+```bash
+docker compose run --rm app python main.py \
+  --init schema/init_db.sql \
+  --rooms csv/test_rooms.csv \
+  --students csv/test_students.csv \
+  --format xml
+```
+
+If port `5432` is already occupied, set `POSTGRES_HOST_PORT` to another port before starting Docker Compose.
+
+## Run locally
+
+Start PostgreSQL and install the Python dependencies:
+
+```bash
+docker compose up -d postgres
+python -m venv .venv
+python -m pip install -r requirements.txt
+```
+
+Then run:
+
+```bash
+python main.py \
+  --init schema/init_db.sql \
+  --rooms csv/test_rooms.csv \
+  --students csv/test_students.csv \
+  --format json
+```
+
+Connection settings are read from `config.yaml`. They can also be overridden with the standard `POSTGRES_HOST`, `POSTGRES_PORT`, `POSTGRES_USER`, `POSTGRES_PASSWORD`, and `POSTGRES_DB` environment variables.
+
+The expected CSV headers are:
+
+- Rooms: `id,name`
+- Students: `id,name,age,room,sex,nationality`
+
+## Tests
+
+```bash
+python -m pip install -r requirements-dev.txt
+pytest
+ruff check .
+```
+
+The fast tests run without a database. GitHub Actions also runs an integration test against PostgreSQL.

@@ -1,4 +1,3 @@
-import os
 from psycopg import connect
 from app.config import get_config
 from app.logger import get_logger
