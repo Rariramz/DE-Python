@@ -7,6 +7,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-EXPOSE 8000
-
-CMD ["python", "main.py"]
+CMD ["python", "main.py", "--init", "schema/init_db.sql", "--rooms", "csv/test_rooms.csv", "--students", "csv/test_students.csv", "--format", "json"]
